@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile | Apple Store</title>
+ <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+  <script defer src="script.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <header class="bg-white border-b">
+    <nav class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="homepage.html" class="text-2xl font-bold">Apple Store</a>
+      <div class="flex flex-wrap gap-4 text-sm items-center">
+        <a href="homepage.html">Shop</a>
+        <a href="wishlist.html">Wishlist<i class="fa-solid fa-heart" style="color: rgb(219, 36, 36);"></i></a>
+        <a href="cart.html">Cart <i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="orders.html">My Orders</a>
+        <button id="logoutButton" class="text-red-600">Logout</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 md:px-8 py-10">
+    <h1 class="text-3xl md:text-4xl font-bold">My Profile</h1>
+    <p class="text-gray-500 mt-2 mb-8">Manage your account information.</p>
+
+    <section class="bg-white border rounded-3xl p-6 md:p-8">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center text-2xl font-bold" id="profileAvatar">U</div>
+        <div>
+          <h2 id="profileDisplayName" class="text-xl font-bold">Your Account</h2>
+          <p id="profileDisplayEmail" class="text-sm text-gray-500"></p>
+        </div>
+      </div>
+
+      <form id="profileForm" class="space-y-5">
+        <div>
+          <label for="profileName" class="block text-sm font-medium mb-2">Full Name</label>
+          <input id="profileName" required class="w-full border rounded-xl p-3">
+        </div>
+        <div>
+          <label for="profileEmail" class="block text-sm font-medium mb-2">Email Address</label>
+          <input id="profileEmail" type="email" required class="w-full border rounded-xl p-3">
+        </div>
+        <div>
+          <label for="profileMobile" class="block text-sm font-medium mb-2">Mobile Number</label>
+          <input id="profileMobile" type="tel" pattern="[0-9]{10}" maxlength="10" required class="w-full border rounded-xl p-3">
+        </div>
+        <p id="profileMessage" class="text-sm" aria-live="polite"></p>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-6 py-3 font-semibold">Save Changes</button>
+      </form>
+    </section>
+
+    <section class="grid sm:grid-cols-2 gap-4 mt-6">
+      <a href="orders.html" class="bg-white border rounded-2xl p-5">
+        <h3 class="font-bold">My Orders</h3>
+        <p class="text-sm text-gray-500 mt-1">View your purchase history.</p>
+      </a>
+      <a href="wishlist.html" class="bg-white border rounded-2xl p-5">
+        <h3 class="font-bold">My Wishlist</h3>
+        <p class="text-sm text-gray-500 mt-1">View your saved products.</p>
+      </a>
+    </section>
+  </main>
+</body>
+</html>

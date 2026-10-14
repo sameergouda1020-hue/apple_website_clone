@@ -1,121 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Apple Store</title>
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
         integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
         crossorigin="anonymous"
-        referrerpolicy="no-referrer"></head>
+        referrerpolicy="no-referrer">
+  <script defer src="script.js"></script>
+</head>
 <body class="bg-gray-50 text-gray-900">
-    <nav class="sticky top-0 z-10 bg-white/95 backdrop-blur border-b">
-        <div class="max-w-7xl mx-auto px-5 md:px-10 py-4 flex items-center justify-between gap-4">
-            <a href="homepage.html" class="text-xl font-bold">Apple Store</a>
-            <div class="flex items-center gap-4">
-                <a href="#products" class="hidden sm:block hover:text-blue-600">Products</a>
-                <a href="#cart" class="font-medium hover:text-blue-600">Cart <i class="fa-solid fa-cart-shopping"></i></a>
-                <button id="logoutButton" class="bg-black text-white px-4 py-2 rounded-full text-sm">Logout</button>
-            </div>
-        </div>
+  <header class="bg-white border-b">
+    <nav class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="homepage.html" class="text-2xl font-bold">Apple Store</a>
+      <div class="flex flex-wrap items-center gap-3 text-sm">
+        <a href="homepage.html" class="font-semibold">Shop</a>
+        <a href="wishlist.html">Wishlist<i class="fa-solid fa-heart" style="color: rgb(219, 36, 36);"></i></a>
+        <a href="product-history.html">History</a>
+        <a href="orders.html">My Orders</a>
+        <a href="profile.html">Profile</a>
+        <a href="cart.html" class="bg-black text-white px-4 py-2 rounded-full">Cart <i class="fa-solid fa-cart-shopping"></i></a>
+        <button id="logoutButton" class="text-red-600">Logout</button>
+      </div>
     </nav>
+  </header>
 
-    <main class="max-w-7xl mx-auto px-5 md:px-10">
-        <section class="my-8 md:my-12 rounded-3xl bg-gray-100 overflow-hidden grid md:grid-cols-2 items-center">
-            <div class="p-8 md:p-14">
-                <p class="text-blue-600 font-medium mb-3">Discover something amazing</p>
-                <h1 class="text-4xl md:text-6xl font-semibold tracking-tight">Technology that moves you.</h1>
-                <p class="text-gray-600 mt-5">Explore our collection of devices and accessories.</p>
-                <a href="#products" class="inline-block mt-7 bg-black text-white px-6 py-3 rounded-full">Shop Now</a>
-            </div>
-            <div class="p-6">
-                <img src="https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=1000&q=80" alt="Technology products" class="w-full h-72 md:h-96 object-cover rounded-2xl">
-            </div>
-        </section>
+  <main class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
+    <section class="bg-black text-white rounded-3xl p-8 md:p-16 mb-12">
+      <p class="text-blue-300 font-semibold mb-3">THE LATEST COLLECTION</p>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight">Designed to inspire.</h1>
+      <p class="text-gray-300 mt-4 max-w-xl">Explore technology that fits your everyday life.</p>
+      <a href="#products" class="inline-block bg-white text-black rounded-full px-6 py-3 mt-7">Explore Products</a>
+    </section>
 
-        <section id="products" class="py-8">
-            <div class="flex items-end justify-between mb-7">
-                <div>
-                    <p class="text-gray-500 text-sm">Our collection</p>
-                    <h2 class="text-3xl font-semibold mt-1">Explore products.</h2>
-                </div>
-            </div>
+    <section id="products">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-7">
+        <div>
+          <p class="text-blue-600 font-semibold">OUR COLLECTION</p>
+          <h2 class="text-3xl md:text-4xl font-bold mt-1">Find your next favorite.</h2>
+        </div>
+        <input id="productSearch" type="search" placeholder="Search products..."
+          class="w-full md:w-80 border bg-white rounded-full px-5 py-3 outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      <p id="emptyProducts" class="hidden text-gray-500 py-10 text-center">No matching products found.</p>
+    </section>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <article class="bg-white rounded-2xl p-5 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=800&q=80" alt="iPhone" class="w-full h-48 object-contain">
-                    <h3 class="text-lg font-semibold mt-4">iPhone 17</h3>
-                    <p class="text-gray-500 mt-1">From ₹79,900</p>
-                    <button onclick="addToCart('iPhone 17',79900,'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=800&q=80')" class="w-full bg-blue-600 text-white py-2.5 rounded-full mt-4 hover:bg-blue-700">Add to Cart</button>
-                </article>
+    <section class="grid sm:grid-cols-3 gap-4 mt-14">
+      <a href="product-history.html" class="bg-white border rounded-2xl p-6 hover:shadow-sm">
+        <h3 class="font-bold text-lg">Recently Viewed</h3>
+        <p class="text-sm text-gray-500 mt-2">Find products you explored earlier.</p>
+      </a>
+      <a href="orders.html" class="bg-white border rounded-2xl p-6 hover:shadow-sm">
+        <h3 class="font-bold text-lg">Your Orders</h3>
+        <p class="text-sm text-gray-500 mt-2">Review your previous purchases.</p>
+      </a>
+      <a href="profile.html" class="bg-white border rounded-2xl p-6 hover:shadow-sm">
+        <h3 class="font-bold text-lg">Your Account</h3>
+        <p class="text-sm text-gray-500 mt-2">Manage your account details.</p>
+      </a>
+    </section>
+  </main>
 
-                <article class="bg-white rounded-2xl p-5 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="MacBook" class="w-full h-48 object-contain">
-                    <h3 class="text-lg font-semibold mt-4">MacBook Air</h3>
-                    <p class="text-gray-500 mt-1">From ₹99,900</p>
-                    <button onclick="addToCart('MacBook Air',99900,'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80')" class="w-full bg-blue-600 text-white py-2.5 rounded-full mt-4 hover:bg-blue-700">Add to Cart</button>
-                </article>
-
-                <article class="bg-white rounded-2xl p-5 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1544117519-31a4b719223d?auto=format&fit=crop&w=800&q=80" alt="Smartwatch" class="w-full h-48 object-contain">
-                    <h3 class="text-lg font-semibold mt-4">Apple Watch</h3>
-                    <p class="text-gray-500 mt-1">From ₹29,900</p>
-                    <button onclick="addToCart('Apple Watch',29900,'https://images.unsplash.com/photo-1544117519-31a4b719223d?auto=format&fit=crop&w=800&q=80')" class="w-full bg-blue-600 text-white py-2.5 rounded-full mt-4 hover:bg-blue-700">Add to Cart</button>
-                </article>
-
-                <article class="bg-white rounded-2xl p-5 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=800&q=80" alt="Wireless earbuds" class="w-full h-48 object-contain">
-                    <h3 class="text-lg font-semibold mt-4">AirPods</h3>
-                    <p class="text-gray-500 mt-1">From ₹19,900</p>
-                    <button onclick="addToCart('AirPods',19900,'https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=800&q=80')" class="w-full bg-blue-600 text-white py-2.5 rounded-full mt-4 hover:bg-blue-700">Add to Cart</button>
-                </article>
-            </div>
-        </section>
-
-        <section id="cart" class="py-12">
-            <h2 class="text-3xl font-semibold">Your cart</h2>
-            <div id="cartItems" class="mt-6 space-y-4">
-                <p class="text-gray-500">Your cart is empty.</p>
-            </div>
-            <div class="mt-6 border-t pt-5 flex flex-wrap justify-between items-center gap-4">
-                <p class="text-xl font-semibold">Total: <span id="cartTotal">₹0</span></p>
-                <button id="checkoutButton" class="bg-black text-white px-6 py-3 rounded-full">Proceed to Checkout</button>
-            </div>
-        </section>
-
-        <section id="checkout" class="hidden py-10">
-            <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-sm p-6 md:p-8">
-                <h2 class="text-2xl font-semibold">Checkout</h2>
-                <p class="text-gray-500 mt-2 mb-6">Enter your delivery details.</p>
-                <form id="checkoutForm" class="space-y-4">
-                    <input id="customerName" type="text" placeholder="Full name" required class="w-full border rounded-xl px-4 py-3">
-                    <input id="customerEmail" type="email" placeholder="Email address" required class="w-full border rounded-xl px-4 py-3">
-                    <input id="customerPhone" type="tel" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required class="w-full border rounded-xl px-4 py-3">
-                    <textarea id="customerAddress" placeholder="Full delivery address" required rows="3" class="w-full border rounded-xl px-4 py-3"></textarea>
-                    <div class="bg-gray-100 rounded-xl p-4">
-                        <p class="text-gray-600">Order total</p>
-                        <p id="checkoutTotal" class="text-2xl font-semibold mt-1">₹0</p>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700">Place Order</button>
-                    <button type="button" id="cancelCheckout" class="w-full border py-3 rounded-xl">Back to Cart</button>
-                </form>
-            </div>
-        </section>
-
-        <section id="orderSuccess" class="hidden text-center py-16">
-            <div class="text-5xl">✓</div>
-            <h2 class="text-3xl font-semibold mt-4">Thank you for your order!</h2>
-            <p id="orderMessage" class="text-gray-600 mt-3">Your demo order has been placed.</p>
-            <a href="#products" class="inline-block mt-6 bg-black text-white px-6 py-3 rounded-full">Continue Shopping</a>
-        </section>
-    </main>
-
-    <footer class="border-t bg-white text-center py-6 mt-10 text-sm text-gray-500">
-        © 2026 Apple Store Mini Project
-    </footer>
-
-    <script src="script.js"></script>
+  <footer class="border-t bg-white py-6 text-center text-sm text-gray-500">
+    Apple Store Demo Project · All prices shown in INR
+  </footer>
 </body>
 </html>

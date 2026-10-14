@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Orders | Apple Store</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+  <script defer src="script.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <header class="bg-white border-b">
+    <nav class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="homepage.html" class="text-2xl font-bold">Apple Store</a>
+      <div class="flex flex-wrap gap-4 text-sm items-center">
+        <a href="homepage.html">Shop</a>
+        <a href="wishlist.html">Wishlist<i class="fa-solid fa-heart" style="color: rgb(219, 36, 36);"></i></a>
+        <a href="cart.html">Cart <i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="profile.html">Profile</a>
+        <button id="logoutButton" class="text-red-600">Logout</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 md:px-8 py-10">
+    <h1 class="text-3xl md:text-4xl font-bold">My Orders</h1>
+    <p class="text-gray-500 mt-2 mb-8">A record of your demo purchases.</p>
+    <div id="ordersList" class="space-y-5"></div>
+    <div id="emptyOrders" class="hidden bg-white border rounded-2xl p-10 text-center">
+      <h2 class="text-xl font-bold">No orders yet</h2>
+      <p class="text-gray-500 mt-2">Your placed orders will appear here.</p>
+      <a href="homepage.html" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 mt-5">Start Shopping</a>
+    </div>
+  </main>
+</body>
+</html>

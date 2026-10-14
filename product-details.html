@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Apple Store</title>
+ <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+  <script defer src="script.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <header class="bg-white border-b">
+    <nav class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="homepage.html" class="text-2xl font-bold">Apple Store</a>
+      <div class="flex flex-wrap gap-4 items-center text-sm">
+        <a href="homepage.html">Shop</a>
+        <a href="wishlist.html">Wishlist <i class="fa-solid fa-heart" style="color: rgb(219, 36, 36);"></i></a>
+        <a href="orders.html">My Orders</a>
+        <a href="profile.html">Profile</a>
+        <a href="cart.html" class="bg-black text-white px-4 py-2 rounded-full">Cart <i class="fa-solid fa-cart-shopping"></i></a>
+        <button id="logoutButton" class="text-red-600">Logout</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-14">
+    <a href="homepage.html" class="text-blue-600 text-sm">← Back to shop</a>
+    <div id="productDetails" class="mt-6"></div>
+    <section class="mt-14">
+      <h2 class="text-2xl font-bold mb-5">You may also like</h2>
+      <div id="relatedProducts" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+    </section>
+  </main>
+</body>
+</html>

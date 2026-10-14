@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart | Apple Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="script.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <header class="bg-white border-b">
+    <nav class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-wrap justify-between items-center gap-4">
+      <a href="homepage.html" class="text-2xl font-bold">Apple Store</a>
+      <div class="flex flex-wrap items-center gap-4 text-sm">
+        <a href="homepage.html">Continue Shopping</a>
+        <a href="wishlist.html">Wishlist (<span id="wishlistCount">0</span>)</a>
+        <a href="orders.html">My Orders</a>
+        <a href="profile.html">Profile</a>
+        <button id="logoutButton" class="text-red-600">Logout</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
+    <h1 class="text-3xl md:text-4xl font-bold">Your Shopping Cart</h1>
+    <p class="text-gray-500 mt-2 mb-8">Review your items before checkout.</p>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+      <section class="lg:col-span-2">
+        <div id="cartItems" class="space-y-4"></div>
+        <div id="emptyCart" class="hidden bg-white border rounded-2xl p-10 text-center">
+          <h2 class="text-xl font-bold">Your cart is empty</h2>
+          <p class="text-gray-500 mt-2">Let's find something you love.</p>
+          <a href="homepage.html" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 mt-5">Explore Products</a>
+        </div>
+      </section>
+
+      <aside id="orderSummary" class="bg-white border rounded-2xl p-6 h-fit">
+        <h2 class="text-xl font-bold mb-5">Order Summary</h2>
+        <div class="flex justify-between py-3 text-gray-600">
+          <span>Subtotal</span><span id="cartSubtotal">₹0</span>
+        </div>
+        <div class="flex justify-between py-3 text-gray-600">
+          <span>Delivery</span><span id="deliveryCharge">₹0</span>
+        </div>
+        <div class="border-t mt-2 pt-4 flex justify-between font-bold text-lg">
+          <span>Total</span><span id="cartTotal">₹0</span>
+        </div>
+        <button id="checkoutButton" class="w-full bg-blue-600 text-white rounded-xl py-3 mt-6 font-semibold">
+          Proceed to Checkout
+        </button>
+        <p class="text-xs text-gray-500 mt-3">Demo checkout only. No real payment is processed.</p>
+      </aside>
+    </div>
+
+    <section id="checkout" class="hidden mt-10 max-w-2xl bg-white border rounded-2xl p-6 md:p-8">
+      <h2 class="text-2xl font-bold">Delivery Details</h2>
+      <p class="text-gray-500 mt-2 mb-6">Enter the details for your demo order.</p>
+      <form id="checkoutForm" class="space-y-4">
+        <input id="customerName" required placeholder="Full name" class="w-full border rounded-xl p-3">
+        <input id="customerEmail" type="email" required placeholder="Email address" class="w-full border rounded-xl p-3">
+        <input id="customerPhone" type="tel" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit mobile number" class="w-full border rounded-xl p-3">
+        <textarea id="customerAddress" required rows="3" placeholder="Delivery address" class="w-full border rounded-xl p-3"></textarea>
+        <p id="checkoutMessage" class="text-sm" aria-live="polite"></p>
+        <div class="flex flex-wrap gap-3">
+          <button type="submit" class="bg-blue-600 text-white rounded-xl px-6 py-3 font-semibold">Place Demo Order</button>
+          <button type="button" id="cancelCheckout" class="border rounded-xl px-6 py-3">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="orderSuccess" class="hidden mt-10 bg-white border rounded-2xl p-8 text-center">
+      <div class="text-4xl">✓</div>
+      <h2 class="text-2xl font-bold mt-3">Order placed successfully!</h2>
+      <p id="orderMessage" class="text-gray-500 mt-2"></p>
+      <div class="flex flex-wrap justify-center gap-3 mt-6">
+        <a href="orders.html" class="bg-blue-600 text-white rounded-full px-6 py-3">View My Orders</a>
+        <a href="homepage.html" class="border rounded-full px-6 py-3">Continue Shopping</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
